@@ -1,0 +1,121 @@
+---
+dask:
+  nameOverride: rapidsai
+  fullnameOverride: rapidsai
+
+  scheduler:
+    name: scheduler
+    image:
+      repository: "rapidsai/rapidsai"
+      tag: cuda9.2-runtime-ubuntu16.04
+      pullPolicy: IfNotPresent
+      # See https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+      pullSecrets:
+      #  - name: regcred
+    replicas: 1
+    # serviceType: "ClusterIP"
+    # serviceType: "NodePort"
+    serviceType: "LoadBalancer"
+    servicePort: 8786
+    resources: {}
+    #  limits:
+    #    cpu: 1.8
+    #    memory: 6G
+    #  requests:
+    #    cpu: 1.8
+    #    memory: 6G
+    tolerations:
+    - key: nvidia.com/gpu
+      operator: Equal
+      value: present
+      effect: NoSchedule
+    nodeSelector: {}
+    affinity: {}
+
+  webUI:
+    name: webui
+    servicePort: 80
+    ingress:
+      enabled: false
+      tls: false
+      # secretName: rapidsai-dask-scheduler-tls
+      hostname: dask-ui.rapidsai.example.com
+      annotations:
+      # kubernetes.io/ingress.class: "nginx"
+      # secretName: my-tls-cert
+      # kubernetes.io/tls-acme: "true"
+
+  worker:
+    name: worker
+    image:
+      repository: "rapidsai/rapidsai"
+      tag: cuda9.2-runtime-ubuntu16.04
+      pullPolicy: IfNotPresent
+      dask_worker: "dask-cuda-worker"
+      pullSecrets:
+      #  - name: regcred
+    replicas: 3
+    env:
+    #  - name: MYVAR
+    #    value: value
+    resources:
+      limits:
+        cpu: 1
+        memory: 3G
+        nvidia.com/gpu: 1
+      requests:
+        cpu: 1
+        memory: 3G
+        nvidia.com/gpu: 1
+    tolerations:
+    - key: nvidia.com/gpu
+      operator: Equal
+      value: present
+      effect: NoSchedule
+    nodeSelector: {}
+    affinity: {}
+
+  jupyter:
+    name: jupyter
+    enabled: true
+    image:
+      repository: "rapidsai/rapidsai"
+      tag: cuda9.2-runtime-ubuntu16.04
+      pullPolicy: IfNotPresent
+      pullSecrets:
+      #  - name: regcred
+    replicas: 1
+    # serviceType: "ClusterIP"
+    # serviceType: "NodePort"
+    serviceType: "LoadBalancer"
+    servicePort: 80
+    # This hash corresponds to the password 'rapidsai'
+    password: 'sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d'
+    env:
+    #  - name: MYVAR
+    #    value: value
+    resources:
+      limits:
+        cpu: 2
+        memory: 6G
+        nvidia.com/gpu: 1
+      requests:
+        cpu: 2
+        memory: 6G
+        nvidia.com/gpu: 1
+    tolerations:
+    - key: nvidia.com/gpu
+      operator: Equal
+      value: present
+      effect: NoSchedule
+    nodeSelector: {}
+    affinity: {}
+    ingress:
+      enabled: false
+      tls: false
+      # secretName: rapidsai-jupyter-tls
+      hostname: jupyter.rapidsai.example.com
+      annotations:
+        # kubernetes.io/ingress.class: "nginx"
+        # secretName: my-tls-cert
+        # kubernetes.io/tls-acme: "true"

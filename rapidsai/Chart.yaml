@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+name: rapidsai
+version: 0.1.0
+appVersion: 0.10
+description: The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
+home: https://rapids.ai/
+icon: https://github.com/rapidsai.png
+sources:
+  - https://github.com/rapidsai
+maintainers:
+  - name: jacobtomlinson
+    email: jtomlinson@nvidia.com
