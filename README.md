@@ -7,6 +7,7 @@
 ```console
 $ git clone https://gitlab-master.nvidia.com/jtomlinson/rapidsai-helm-chart.git helm-chart
 $ cd helm-chart
+$ helm dep update rapidsai
 $ helm install --name myname --namespace mynamespace rapidsai
 ```
 
