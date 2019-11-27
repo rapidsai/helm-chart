@@ -2,7 +2,11 @@
 
 ## Installation
 
+### From source
+
 ```console
+$ git clone https://gitlab-master.nvidia.com/jtomlinson/rapidsai-helm-chart.git helm-chart
+$ cd helm-chart
 $ helm install --name myname --namespace mynamespace rapidsai
 ```
 
