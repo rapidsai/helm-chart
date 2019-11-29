@@ -4,6 +4,39 @@ name: rapidsai
 version: 0.1.0
 appVersion: 0.10
 description: The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
+long_description: |
+
+  This chart will deploy the following:
+
+  - 1 x Dask scheduler with port 8786 (scheduler) and 80 (Web UI) exposed on an external LoadBalancer (default)
+  - 3 x Dask CUDA workers with RAPIDS environment and a GPU that connect to the scheduler
+  - 1 x Jupyter notebook (optional) with port 80 exposed on an external LoadBalancer (default)
+  - All using Kubernetes Deployments
+
+  ## Installation
+
+  ### From source
+
+  ```console
+  $ git clone https://gitlab-master.nvidia.com/jtomlinson/rapidsai-helm-chart.git helm-chart
+  $ cd helm-chart
+  $ helm dep update rapidsai
+  $ helm install --name myname --namespace mynamespace rapidsai
+  ```
+
+  ## Development
+
+  ### Testing
+
+  ```console
+  $ make test
+  helm lint rapidsai
+  ==> Linting rapidsai
+  Lint OK
+
+  1 chart(s) linted, no failures
+  ```
+
 home: https://rapids.ai/
 icon: https://github.com/rapidsai.png
 sources:
