@@ -46,7 +46,7 @@ The following table lists the configurable parameters of the Rapidsai chart and 
 | `dask.fullnameOverride` |  | `"rapidsai"` |
 | `dask.scheduler.name` |  | `"scheduler"` |
 | `dask.scheduler.image.repository` |  | `"rapidsai/rapidsai"` |
-| `dask.scheduler.image.tag` |  | `"cuda9.2-runtime-ubuntu16.04"` |
+| `dask.scheduler.image.tag` |  | `"cuda10.0-runtime-ubuntu16.04"` |
 | `dask.scheduler.image.pullPolicy` |  | `"IfNotPresent"` |
 | `dask.scheduler.image.pullSecrets` |  | `null` |
 | `dask.scheduler.replicas` |  | `1` |
@@ -57,14 +57,14 @@ The following table lists the configurable parameters of the Rapidsai chart and 
 | `dask.scheduler.nodeSelector` |  | `{}` |
 | `dask.scheduler.affinity` |  | `{}` |
 | `dask.webUI.name` |  | `"webui"` |
-| `dask.webUI.servicePort` |  | `80` |
+| `dask.webUI.servicePort` |  | `8787` |
 | `dask.webUI.ingress.enabled` |  | `false` |
 | `dask.webUI.ingress.tls` |  | `false` |
 | `dask.webUI.ingress.hostname` |  | `"dask-ui.rapidsai.example.com"` |
 | `dask.webUI.ingress.annotations` |  | `null` |
 | `dask.worker.name` |  | `"worker"` |
 | `dask.worker.image.repository` |  | `"rapidsai/rapidsai"` |
-| `dask.worker.image.tag` |  | `"cuda9.2-runtime-ubuntu16.04"` |
+| `dask.worker.image.tag` |  | `"cuda10.0-runtime-ubuntu16.04"` |
 | `dask.worker.image.pullPolicy` |  | `"IfNotPresent"` |
 | `dask.worker.image.dask_worker` |  | `"dask-cuda-worker"` |
 | `dask.worker.image.pullSecrets` |  | `null` |
@@ -82,7 +82,7 @@ The following table lists the configurable parameters of the Rapidsai chart and 
 | `dask.jupyter.name` |  | `"jupyter"` |
 | `dask.jupyter.enabled` |  | `true` |
 | `dask.jupyter.image.repository` |  | `"rapidsai/rapidsai"` |
-| `dask.jupyter.image.tag` |  | `"cuda9.2-runtime-ubuntu16.04"` |
+| `dask.jupyter.image.tag` |  | `"cuda10.0-runtime-ubuntu16.04"` |
 | `dask.jupyter.image.pullPolicy` |  | `"IfNotPresent"` |
 | `dask.jupyter.image.pullSecrets` |  | `null` |
 | `dask.jupyter.replicas` |  | `1` |
@@ -90,7 +90,8 @@ The following table lists the configurable parameters of the Rapidsai chart and 
 | `dask.jupyter.servicePort` |  | `80` |
 | `dask.jupyter.password` |  | `"sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d"` |
 | `dask.jupyter.args` |  | `["bash", "/rapids/notebooks/utils/start-jupyter.sh"]` |
-| `dask.jupyter.env` |  | `null` |
+| `dask.jupyter.extraConfig` |  | `"c.ServerProxy.host_whitelist = [\"localhost\", \"127.0.0.1\", \"rapidsai-scheduler\"]"` |
+| `dask.jupyter.env` |  | `[{"name": "DASK_DISTRIBUTED__DASHBOARD__LINK", "value": "/proxy/rapidsai-scheduler:8787/status"}]` |
 | `dask.jupyter.resources.limits.cpu` |  | `2` |
 | `dask.jupyter.resources.limits.memory` |  | `"6G"` |
 | `dask.jupyter.resources.limits.nvidia.com/gpu` |  | `1` |
