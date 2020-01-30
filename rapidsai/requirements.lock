@@ -1,6 +1,6 @@
 dependencies:
 - name: dask
   repository: https://helm.dask.org/
-  version: 4.1.0
-digest: sha256:617be603d9c78278118ddfb8aaede05b41ef33812fe506da548f92a5357eeaf4
-generated: "2019-11-27T14:55:23.851016Z"
+  version: 4.1.4
+digest: sha256:6ac33649805b8d7e59814d480e24b3c3e756e27f02162c41ed3d527513818962
+generated: "2020-01-30T10:01:46.258427Z"
