@@ -1,0 +1,12 @@
+title: RAPIDS Helm chart repo
+description: >
+  The RAPIDS suite of open source software libraries gives you the freedom to execute
+  end-to-end data science and analytics pipelines entirely on GPUs.
+theme: minima
+url: "https://rapidsai.github.io/helm-chart/"
+repo_name: helm-chart
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
