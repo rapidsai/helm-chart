@@ -1,3 +1,25 @@
 apiVersion: v1
 entries:
-  rapidsai: []
+  rapidsai:
+  - apiVersion: v1
+    appVersion: "0.1"
+    created: "2020-03-03T17:04:57.527078216Z"
+    dependencies:
+    - name: dask
+      repository: https://helm.dask.org/
+      version: 4.1.4
+    description: |
+      The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
+    digest: 49c4f561a1c2303b2afc2fe260b2df3f56888466173a859ff5f836ce541f66d4
+    home: https://rapids.ai/
+    icon: https://github.com/rapidsai.png
+    maintainers:
+    - email: jtomlinson@nvidia.com
+      name: jacobtomlinson
+    name: rapidsai
+    sources:
+    - https://github.com/rapidsai
+    urls:
+    - https://rapidsai.github.io/helm-chart/rapidsai-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-03-03T17:04:57.525545764Z"
