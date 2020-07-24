@@ -9,7 +9,7 @@ layout: default
 You can add this repository to your local helm configuration as follows :
 
 ```console
-$ helm repo add {{ site.repo_name }} {{ site.url }}
+$ helm repo add rapidsai {{ site.url }}
 $ helm repo update
 ```
 
@@ -32,11 +32,13 @@ $ helm repo update
 {{ latest_chart.description }}
 
 ```console
-$ helm install {{ site.repo_name }}/{{ latest_chart.name }} --name myrelease --version {{ latest_chart.version }}
+$ helm install rapidsai/{{ latest_chart.name }} --name myrelease --version {{ latest_chart.version }}
 ```
 
 | Chart Version | App Version | Date |
-|---------------|-------------|------|
+| ------------- | ----------- | ---- |
+
+
 {% for chart in all_charts -%}
 {% unless chart.version contains "-" -%}
 | [{{ chart.name }}-{{ chart.version }}]({{ chart.urls[0] }}) | {{ chart.appVersion }} | {{ chart.created | date_to_rfc822 }} |
