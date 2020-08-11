@@ -5,8 +5,8 @@ dask:
   scheduler:
     name: scheduler
     image:
-      repository: "rapidsai/rapidsai"
-      tag: cuda10.0-runtime-ubuntu16.04
+      repository: "rapidsai/rapidsai-nightly"
+      tag: 0.15-cuda10.1-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       # See https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
       pullSecrets:
@@ -47,8 +47,8 @@ dask:
   worker:
     name: worker
     image:
-      repository: "rapidsai/rapidsai"
-      tag: cuda10.0-runtime-ubuntu16.04
+      repository: "rapidsai/rapidsai-nightly"
+      tag: 0.15-cuda10.1-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       dask_worker: "dask-cuda-worker"
       pullSecrets:
@@ -78,8 +78,8 @@ dask:
     name: jupyter
     enabled: true
     image:
-      repository: "rapidsai/rapidsai"
-      tag: cuda10.0-runtime-ubuntu16.04
+      repository: "rapidsai/rapidsai-nightly"
+      tag: 0.15-cuda10.1-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       pullSecrets:
       #  - name: regcred
@@ -90,14 +90,16 @@ dask:
     servicePort: 80
     # This hash corresponds to the password 'rapidsai'
     password: 'sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d'
-    args:
-      - bash
-      - '/rapids/notebooks/utils/start-jupyter.sh'
+    # args:
+    #   - bash
+    #   - '/rapids/notebooks/utils/start-jupyter.sh'
     extraConfig: |-
       c.ServerProxy.host_whitelist = ["localhost", "127.0.0.1", "rapidsai-scheduler"]
     env:
      - name: DASK_DISTRIBUTED__DASHBOARD__LINK
        value: /proxy/rapidsai-scheduler:8787/status
+     - name: JUPYTER_FG  # Run Jupyter as a daemon in the foreground
+       value: true
     resources:
       limits:
         cpu: 2
