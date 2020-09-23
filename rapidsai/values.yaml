@@ -84,9 +84,10 @@ dask:
       pullSecrets:
       #  - name: regcred
     replicas: 1
-    serviceType: "ClusterIP"
+    args: ["bash", "/rapids/utils/start-jupyter.sh"]
+    # serviceType: "ClusterIP"
     # serviceType: "NodePort"
-    # serviceType: "LoadBalancer"
+    serviceType: "LoadBalancer"
     servicePort: 80
     # This hash corresponds to the password 'rapidsai'
     password: 'sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d'
