@@ -20,7 +20,7 @@ This chart will deploy the following:
 $ git clone https://github.com/rapidsai/helm-chart helm-chart
 $ cd helm-chart
 $ helm dep update rapidsai
-$ helm install --name myname --namespace mynamespace rapidsai
+$ helm install myname --namespace mynamespace rapidsai
 ```
 
 ## Development
