@@ -6,15 +6,15 @@ dask:
     name: scheduler
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       # See https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
       pullSecrets:
       #  - name: regcred
     replicas: 1
-    serviceType: "ClusterIP"
+    # serviceType: "ClusterIP"
     # serviceType: "NodePort"
-    # serviceType: "LoadBalancer"
+    serviceType: "LoadBalancer"
     servicePort: 8786
     resources: {}
     #  limits:
@@ -48,7 +48,7 @@ dask:
     name: worker
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       dask_worker: "dask-cuda-worker"
       pullSecrets:
@@ -79,14 +79,14 @@ dask:
     enabled: true
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       pullSecrets:
       #  - name: regcred
     replicas: 1
-    serviceType: "ClusterIP"
+    # serviceType: "ClusterIP"
     # serviceType: "NodePort"
-    # serviceType: "LoadBalancer"
+    serviceType: "LoadBalancer"
     servicePort: 80
     # This hash corresponds to the password 'rapidsai'
     password: 'sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d'
