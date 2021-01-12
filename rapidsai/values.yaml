@@ -6,7 +6,7 @@ dask:
     name: scheduler
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       # See https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
       pullSecrets:
@@ -48,7 +48,7 @@ dask:
     name: worker
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       dask_worker: "dask-cuda-worker"
       pullSecrets:
@@ -79,7 +79,7 @@ dask:
     enabled: true
     image:
       repository: "rapidsai/rapidsai"
-      tag: 0.15-cuda10.1-runtime-ubuntu18.04
+      tag: 0.17-cuda11.0-runtime-ubuntu18.04
       pullPolicy: IfNotPresent
       pullSecrets:
       #  - name: regcred
