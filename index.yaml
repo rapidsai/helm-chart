@@ -8,8 +8,7 @@ entries:
     - name: dask
       repository: https://helm.dask.org/
       version: 4.5.0
-    description: |
-      The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
+    description: 'The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs. '
     digest: 5de4822b37f92f22cc327a5dafdcc4507ef6e1cf61708ed2759f40f07def4a04
     home: https://rapids.ai/
     icon: https://github.com/rapidsai.png
@@ -23,14 +22,33 @@ entries:
     - https://rapidsai.github.io/helm-chart/rapidsai-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
+    appVersion: "0.17"
+    created: "2021-03-30T15:37:22.803822226Z"
+    dependencies:
+    - name: dask
+      repository: https://helm.dask.org/
+      version: 4.5.0
+    description: 'The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs. '
+    digest: 864b15c0113f30bce575bd385815dcab268b33dd360462cafd2c165a4bfea679
+    home: https://rapids.ai/
+    icon: https://github.com/rapidsai.png
+    maintainers:
+    - email: jtomlinson@nvidia.com
+      name: jacobtomlinson
+    name: rapidsai
+    sources:
+    - https://github.com/rapidsai
+    urls:
+    - https://rapidsai.github.io/helm-chart/rapidsai-0.2.0-n002.he3feec7.tgz
+    version: 0.2.0-n002.he3feec7
+  - apiVersion: v1
     appVersion: "0.1"
     created: "2020-03-03T17:04:57.527078216Z"
     dependencies:
     - name: dask
       repository: https://helm.dask.org/
       version: 4.1.4
-    description: |
-      The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs.
+    description: 'The RAPIDS suite of open source software libraries gives you the freedom to execute end-to-end data science and analytics pipelines entirely on GPUs. '
     digest: 49c4f561a1c2303b2afc2fe260b2df3f56888466173a859ff5f836ce541f66d4
     home: https://rapids.ai/
     icon: https://github.com/rapidsai.png
@@ -43,4 +61,4 @@ entries:
     urls:
     - https://rapidsai.github.io/helm-chart/rapidsai-0.1.0.tgz
     version: 0.1.0
-generated: "2020-11-06T18:55:39.926146942Z"
+generated: "2021-03-30T15:37:22.801798754Z"
