@@ -19,7 +19,7 @@ git config --global user.email "gputester@rapids.ai"
 git config --global user.name "GPU Tester"
 git config --global credential.helper "/bin/bash $WORKSPACE/credentials.sh"
 
-source activate gdf
+source activate rapids
 pip install chartpress
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | env USE_SUDO=false HELM_INSTALL_DIR=$WORKSPACE bash
 
