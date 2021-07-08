@@ -92,6 +92,7 @@ dask:
     password: 'sha1:56152965e045:3cd9a2065e78b4a4e46c2d6f35ddd0160fe5b94d'
     extraConfig: |-
       c.ServerProxy.host_whitelist = ["localhost", "127.0.0.1", "rapidsai-scheduler"]
+      c.NotebookApp.allow_origin = '*'
     env:
      - name: DASK_DISTRIBUTED__DASHBOARD__LINK
        value: /proxy/rapidsai-scheduler:8787/status
