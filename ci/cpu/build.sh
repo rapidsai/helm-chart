@@ -6,7 +6,7 @@ export HOME=$WORKSPACE
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if [[ "$BRANCH" != "main" ]]; then
   echo 'Branch release not main, exiting...';
-  exit 1;
+  exit 0;
 fi
 
 cat <<EOF > credentials.sh
