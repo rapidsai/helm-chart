@@ -1,3 +1,4 @@
+> ⚠️ This Helm Chart has been deprecated. Please use the [Dask Helm Chart](https://helm.dask.org/) instead.
 
 Rapidsai
 ===========
